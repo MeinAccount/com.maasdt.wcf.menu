@@ -143,7 +143,7 @@ class Foo extends DatabaseObject {
 }
 ```
 
-Or, if your object should support/have multiple objects:
+Or, if your object should support/have multiple menus:
 
 ```php
 namespace wcf\data\foo;
