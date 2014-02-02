@@ -1,6 +1,6 @@
 <?php
 namespace wcf\data\menu\item;
-use wcf\data\DatabaseObject;
+use wcf\data\ProcessibleDatabaseObject;
 
 /**
  * Represents a menu item.
@@ -12,7 +12,7 @@ use wcf\data\DatabaseObject;
  * @subpackage	data.menu.item
  * @category	Community Framework
  */
-class MenuItem extends DatabaseObject {
+class MenuItem extends ProcessibleDatabaseObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableIndexName
 	 */
@@ -22,6 +22,11 @@ class MenuItem extends DatabaseObject {
 	 * @see	\wcf\data\DatabaseObject::$databaseTableIndexName
 	 */
 	protected static $databaseTableName = 'menu_item';
+	
+	/**
+	 * @see	\wcf\data\ProcessibleDatabaseObject::$processorInterface
+	 */
+	protected static $processorInterface = 'wcf\system\menu\IMenuItemProvider';
 	
 	/**
 	 * @see	\wcf\data\IStorableObject::__get()
@@ -35,6 +40,22 @@ class MenuItem extends DatabaseObject {
 		}
 		
 		return $value;
+	}
+	
+	/**
+	 * @see	\wcf\data\ProcessibleDatabaseObject::getProcessor()
+	 */
+	public function getProcessor() {
+		if (parent::getProcessor() === null) {
+			$className = 'wcf\system\menu\DefaultMenuItemProvider';
+			if ($this->getMenu()->defaultMenuItemProvider) {
+				$className = $this->getMenu()->defaultMenuItemProvider;
+			}
+			
+			$this->processor = new $className($this);
+		}
+		
+		return $this->processor;
 	}
 	
 	/**
