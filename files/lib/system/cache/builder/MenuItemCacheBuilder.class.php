@@ -18,8 +18,18 @@ class MenuItemCacheBuilder extends AbstractCacheBuilder {
 	 */
 	protected function rebuild(array $parameters) {
 		$menuItemList = new MenuItemList();
+		$menuItemList->sqlOrderBy = 'menu_item.showOrder ASC';
 		$menuItemList->readObjects();
 		
-		return $menuItemList->getObjects();
+		$menuItems = array();
+		foreach ($menuItemList as $menuItem) {
+			if (!isset($menuItems[$menuItem->menuName])) {
+				$menuItems[$menuItem->menuName] = array();
+			}
+			
+			$menuItems[$menuItem->menuName][$menuItem->menuItemID] = $menuItem;
+		}
+		
+		return $menuItems;
 	}
 }
