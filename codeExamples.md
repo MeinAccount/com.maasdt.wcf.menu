@@ -154,11 +154,11 @@ class Foo extends DatabaseObject {
 	protected $menus = array();
 	
 	public function getMenu($menuName) {
-		if (!isset($this->menu[$menuName])) {
-			$this->menu[$menuName] = MenuHandler::getInstance()->getMenu($menuName, $this);
+		if (!isset($this->menus[$menuName])) {
+			$this->menus[$menuName] = MenuHandler::getInstance()->getMenu($menuName, $this);
 		}
 		
-		return $this->menu;
+		return $this->menus;
 	}
 }
 ```
