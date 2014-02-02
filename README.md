@@ -4,6 +4,12 @@ Menu API
 Menu API provides a menu API for static and object-boudn menus.
 
 
+Code Examples
+-------------
+
+For code examples, please refer to the codeExamples.md file in this folder.
+
+
 License
 -------
 
