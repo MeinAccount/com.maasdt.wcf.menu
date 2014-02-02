@@ -51,11 +51,7 @@
 			{/if}
 			
 			<li{if $__primaryMenuItem->menuItem|in_array:$__activeMenuItems} class="active"{/if}>
-				<a href="{$__primaryMenuItem->getProcessor()->getLink()}">{$__primaryMenuItem->menuItem|language}</a>
-				
-				{if $__primaryMenuItem->getProcessor()->getNotifications()}
-					<span class="badge">{#$__primaryMenuItem->getProcessor()->getNotifications()}</span>
-				{/if}
+				<a href="{$__primaryMenuItem->getProcessor()->getLink()}">{$__primaryMenuItem->menuItem|language}{if $__primaryMenuItem->getProcessor()->getNotifications()} <span class="badge">{#$__primaryMenuItem->getProcessor()->getNotifications()}</span>{/if}</a>
 			</li>
 		{/if}
 	{/foreach}
