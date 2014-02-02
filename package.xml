@@ -2,7 +2,8 @@
 <package name="com.maasdt.wcf.menu" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/package.xsd">
 	<packageinformation>
 		<packagename>Menu API</packagename>
-		<packagedescription><![CDATA[Provides a menu API for static and object-boudn menus]]></packagedescription>
+		<packagename language="de"><![CDATA[Menü-API]]></packagename>
+		<packagedescription><![CDATA[Provides an API for static and object-bound menus]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Stellt eine API für statische und objekt-gebundene Menüs bereit]]></packagedescription>
 		<version>1.0.0 Beta 1</version>
 		<date>2014-02-02</date>
