@@ -1,7 +1,7 @@
 Menu API
 ========
 
-Menu API provides a menu API for static and object-boudn menus.
+Menu API provides a menu API for static and object-bound menus.
 
 
 Code Examples
